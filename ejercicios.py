@@ -13,3 +13,23 @@ for i in name:
     else: 
         cons=cons+1
 print ("El total de letras es :", cont, ", la cantidad de vocales son: ", vocales, "y la cantidad de consonantes son: ", cons)
+
+# Preguntar cantidad de votantes
+# Poner los dos candidatos: Dexter / Samurai Jack
+# Preguntar en cada iteracion, por quien votara 
+# Mostrar al final quien gano la votacion
+
+print("Cuantos votantes son: ")
+v1=0
+v2=0
+voto=print()
+for i in voto:
+    print ('''
+           ¿Por quien votará? 
+           1.- Dexter
+           2.- Samurai Jack
+           ''')
+    if voto in "Dexter":
+        v1=v1+1
+    else:
+        v2=v2+1
