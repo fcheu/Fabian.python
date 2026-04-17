@@ -9,7 +9,7 @@ for i in name:
     if i in "aeiouAEIOU": 
         vocales=vocales+1
     elif i ==" ":
-        print(" ")
+         cont-=1
     else: 
         cons=cons+1
 print ("El total de letras es :", cont, ", la cantidad de vocales son: ", vocales, "y la cantidad de consonantes son: ", cons)
