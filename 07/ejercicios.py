@@ -33,3 +33,4 @@ for i in voto:
         v1=v1+1
     else:
         v2=v2+1
+

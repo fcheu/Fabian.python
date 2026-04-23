@@ -1,0 +1,21 @@
+## Explicacion y ejemplos de while
+# cont=1
+# while cont<=3:
+#     print(f"El cotador es {cont}")
+#     cont+=1
+# pin=5656
+# num=int(input("Ingrese su pin: "))
+# while num!=pin:
+#     print("Error, intente de nuevo")
+#     num=int(input("Ingrese su pin: "))
+# print("Ingresado correctamente")
+
+## Pedir un umero al usurio y mostrar
+# su tabla de multiplicar "
+
+
+num=int(input("Ingrese su numero: "))
+c=1
+while c<=10:
+    print(f"{num}x{c}={num*c}")
+    c+=1
