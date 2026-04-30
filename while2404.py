@@ -179,24 +179,35 @@
 #             print("Opcion invalida")
 
 #votatoon
-toon1=input("Ingrese el toon 1:")
-toon2=input("Ingrese el toon 2:")
-v1=0
-v2=0
-cant=int(input("¿Cuantos votantes son?:"))
-while cant>0:
-    voto=int(input(f"¿Por quien votará? 1.- {toon1} 2.- {toon2} "))
-    if voto==1:
-        v1+=1
-    elif voto==2:
-        v2+=1
-    else: 
-        print("Voto nulo")
-    cant-=1
-if v1>v2:
-    print(f"Ganó {toon1} con {v1} votos")
-elif v2>v1:
-    print(f"Ganó {toon2} con {v2} votos")
-else:
+# toon1=input("Ingrese el toon 1:")
+# toon2=input("Ingrese el toon 2:")
+# v1=0
+# v2=0
+# cant=int(input("¿Cuantos votantes son?:"))
+# while cant>0:
+#     voto=int(input(f"¿Por quien votará? 1.- {toon1} 2.- {toon2} "))
+#     if voto==1:
+#         v1+=1
+#     elif voto==2:
+#         v2+=1
+#     else: 
+#         print("Voto nulo")
+#     cant-=1
+# if v1>v2:
+#     print(f"Ganó {toon1} con {v1} votos")
+# elif v2>v1:
+#     print(f"Ganó {toon2} con {v2} votos")
+# else:
 
-    print("Hubo un empate")
+#     print("Hubo un empate")
+
+import random
+
+dado1=(random.randint(1,6))
+dado2=(random.randint(1,6))
+print("El primer dado salió", dado1)
+print("El segundo dado salió", dado2)
+if dado1==dado2:
+    print("Va a la cárcel")
+else:
+    print("Avanza")
