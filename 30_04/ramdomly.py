@@ -81,8 +81,10 @@ jugador2=input("Ingrese el nombre del jugador 2:")
 j1=100
 j2=100
 turno=1
+barra1 = "=" * j1
+barra2 = "=" * j2
 while j1 > 0 and j2 > 0:
-    punch = random.randint(7,18)
+    punch=random.randint(7,18)
     if turno % 2 == 1:
         j2 -= punch
         if j2 < 0:
