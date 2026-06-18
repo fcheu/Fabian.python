@@ -208,10 +208,10 @@ Crear un diccionario de trabajadores
 # de diccionarios.
 
 peliculas={
-   1:{"nombre": "Obsession", "año": 2026, "director": "Curry Barker"},
-   2:{"nombre": "Hokum", "año": 2026, "director": "Damian McCarthy"},
-   3:{"nombre" : "Backrooms", "año": 2026, "director": "Kane Parsons"},
-   4:{"nombre": "Hereditary", "año": 2018, "director": "Ari Aster"}
+   1:{"nombre": "Obsession", "año": 2026, "director": "Curry Barker", "calificación": 0},
+   2:{"nombre": "Hokum", "año": 2026, "director": "Damian McCarthy", "calificacion": 0},
+   3:{"nombre" : "Backrooms", "año": 2026, "director": "Kane Parsons", "calificacion": 0},
+   4:{"nombre": "Hereditary", "año": 2018, "director": "Ari Aster", "calificacion": 0}
 }
 
 def calificarPelicula():
@@ -229,21 +229,34 @@ def mostrarPeliculas():
       return 
    for codigo, datos in peliculas.items():
       print(f"codigo:{codigo} Nombre:{datos['nombre']} Año: {datos['año']} Director: {datos['director']} Calificacion:{datos['calificacion']}")
+def agregarPelicula():
+   codigo=max(peliculas.keys()) + 1
+   nombre=input("Ingrese nombre: ")
+   año=int(input("Ingrese año: "))
+   director=input("Ingrese el director: ")
+   peliculas[codigo]={"nombre":nombre,"año":año,"director": director,"calificaciones": 0}
+   print("Pelicula agregada correctamente")
 
 def menuPeliculas():
-    while True:
-        try:
-           print("1.- Calificar pelicula")
-           print("2.- Mostrar peliculas")
-           print("3.- Salir")
-           op=int(input("Seleccione una opcion: "))
-        except Exception as e:
-           print("Error:", e)
-           match op:
-              case 1:
-                 calificarPelicula()
-              case 2:
-                 mostrarPeliculas()
-              case 3:
-                 print("Salir")
-                 break
+   while True:
+      try:
+         print("1.- Calificar pelicula")
+         print("2.- Mostrar peliculas")
+         print("3.- Agregar pelicula")
+         print("4.- Salir")
+         op=int(input("Seleccione una opcion: "))
+         match op:
+            case 1:
+               calificarPelicula()
+            case 2:
+               mostrarPeliculas()
+            case 3:
+               agregarPelicula()
+            case 4:
+               print("Saliendo del sistema")
+               break
+            case _:
+                 print("Opcion invalida")
+      except Exception as e:
+           print("Error:",e)
+menuPeliculas()
