@@ -13,6 +13,16 @@
 # for e in listado:
 #     print(e)
 
+def verificarNumero():
+    while True:
+        try:
+            num=int(input("Ingrese un numero: "))
+            if num<0:
+                print("debe ingresar un numero mayor o igual a 0")
+            else:
+                return num
+        except Exception as e:
+            print("Solo numero enteros positivos")
 
 pinturas=[
     {"color": "verde", "capacidad": 1500, "formato": "tarro"},
@@ -21,8 +31,23 @@ pinturas=[
     {"color": "purpura", "capacidad": 500, "formato": "bolsa"} 
 ]
 
-def mostrarPinturas():
-    if len(pinturas)<1: 
+
+def dispColores(lista,color):
+    for i in lista:
+        if color.lower() == i["color"].lower():
+            return "Disponible"
+    return "No existe"
+
+# listaCapacidad=[]
+# for i in pinturas:
+#     print(f"{i["capacidad"]}") #muestra solo capacidad
+#     listaCapacidad.append(i["capacidad"])
+# print(min(listaCapacidad))
+        
+
+
+def mostrarPinturas(lista):
+    if len(lista)<1: 
         print("no hay pinturas para mostrar")
     else:
         c=1
@@ -34,6 +59,17 @@ def quitarPinturas():
     mostrarPinturas()
     elemento=int(input("¿Que pintura va a eliminar?: "))
     pinturas.pop(elemento-1)
+
+def quitarColor():
+    mostrarPinturas()
+    col=input("¿Que color va a quitar?: ").lower()
+    for pintura in pinturas:
+        if pintura["color"].lower() == col:
+            pinturas.remove(pintura)
+            print("Color eliminado")
+            return
+
+    print("Color no encontrado")
 
 def agregarPinturas():
     color=input("¿Que color será?: ")
@@ -61,12 +97,16 @@ def actualizarPinturas():
         print("dato invalido")
 
 def mayorCapacidad(lista):
-    listaCapacidad=[]
+    listaCapacidad=[] #lista vacia
     for p in lista:
         listaCapacidad.append(p["capacidad"])
     return max(listaCapacidad)
 
 
+# Cree una funcion para buscar un color especifico
+# pase la lista como argumento y el valor del color 
+# como segundo argumento. Retorne "Disponible" si el
+# color existe. "No existe" en caso contrario
 
 def menuPinturas():
     while True:
@@ -77,7 +117,8 @@ def menuPinturas():
             print("3.- Actualizar pintura")
             print("4.- Mostrar pinturas")
             print("5.- Mostrar mayor capacidad")
-            print("6.- Salir")
+            print("6.- Buscar color")
+            print("7.- Salir")
             op=int(input("Seleccione una opcion: "))
             match op:
                 case 1:
@@ -87,12 +128,19 @@ def menuPinturas():
                 case 3:
                     actualizarPinturas()
                 case 4:
-                    mostrarPinturas()
+                    mostrarPinturas(pinturas)
                 case 5:
                     print(f"El recipiente con mayor capacidad tiene: {mayorCapacidad(pinturas)}")
-                case 6:
+                    #aca en () va pinturas pq mi lista se llama asi 
+                case 6: 
+                     busca = input("¿Qué color busca?: ")
+                     resultado = dispColores(pinturas, busca)
+                     print(resultado)
+                case 7:
                     print("Saliendo...")
                 case _:
                     print("Opcion invalida")
         except Exception as e:
             print("Error: ", e)
+
+menuPinturas()
